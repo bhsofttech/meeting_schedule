@@ -6,10 +6,10 @@ import 'package:meeting_schedule/meeting_detail_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class MeetingScreen extends StatelessWidget {
+class MeetingView extends StatelessWidget {
   final MeetingController _meetingController = Get.find();
 
-  MeetingScreen({super.key});
+  MeetingView({super.key});
 
   @override
   Widget build(BuildContext context) {
