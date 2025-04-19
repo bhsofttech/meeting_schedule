@@ -1,6 +1,6 @@
 // 
 
-import 'package:doc_scanner/meeting.dart';
+import 'package:meeting_schedule/meeting.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'package:timezone/timezone.dart' as tz;

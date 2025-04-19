@@ -1,7 +1,7 @@
-import 'package:doc_scanner/database_helper.dart';
-import 'package:doc_scanner/home_view.dart';
-import 'package:doc_scanner/meeting_controller.dart';
-import 'package:doc_scanner/theme_controller.dart';
+import 'package:meeting_schedule/database_helper.dart';
+import 'package:meeting_schedule/home_view.dart';
+import 'package:meeting_schedule/meeting_controller.dart';
+import 'package:meeting_schedule/theme_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

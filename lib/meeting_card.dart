@@ -78,7 +78,7 @@
 //   }
 // }
 
-import 'package:doc_scanner/meeting.dart';
+import 'package:meeting_schedule/meeting.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 

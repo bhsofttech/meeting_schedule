@@ -1,4 +1,4 @@
-// import 'package:doc_scanner/meeting_controller.dart';
+// import 'package:meeting_schedule/meeting_controller.dart';
 // import 'package:doc_scanner/meeting_detail_view.dart';
 // import 'package:flutter/material.dart';
 // import 'package:get/get.dart';
@@ -92,8 +92,8 @@
 //   }
 // }
 
-import 'package:doc_scanner/meeting_controller.dart';
-import 'package:doc_scanner/meeting_detail_view.dart';
+import 'package:meeting_schedule/meeting_controller.dart';
+import 'package:meeting_schedule/meeting_detail_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:table_calendar/table_calendar.dart';

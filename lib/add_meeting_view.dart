@@ -324,9 +324,9 @@
 //   }
 // }
 
-import 'package:doc_scanner/meeting.dart';
-import 'package:doc_scanner/meeting_controller.dart';
-import 'package:doc_scanner/time_picker.dart';
+import 'package:meeting_schedule/meeting.dart';
+import 'package:meeting_schedule/meeting_controller.dart';
+import 'package:meeting_schedule/time_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
