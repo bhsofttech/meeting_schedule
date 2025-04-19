@@ -9,8 +9,6 @@ import 'package:get/get.dart';
 class MeetingView extends StatelessWidget {
   final MeetingController _meetingController = Get.find();
 
-  MeetingView({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

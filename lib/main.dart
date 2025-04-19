@@ -1,6 +1,6 @@
 import 'package:meeting_schedule/database_helper.dart';
-import 'package:meeting_schedule/meeting_screen.dart';
 import 'package:meeting_schedule/meeting_controller.dart';
+import 'package:meeting_schedule/meeting_view.dart';
 import 'package:meeting_schedule/theme_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -24,8 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
       themeMode: _themeController.themeMode,
-      home: MeetingScreen(),
+      home: MeetingView(),
     );
   }
 }
-
