@@ -1,5 +1,5 @@
 import 'package:meeting_schedule/database_helper.dart';
-import 'package:meeting_schedule/home_view.dart';
+import 'package:meeting_schedule/meeting_screen.dart';
 import 'package:meeting_schedule/meeting_controller.dart';
 import 'package:meeting_schedule/theme_controller.dart';
 import 'package:flutter/material.dart';
