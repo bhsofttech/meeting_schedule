@@ -8,7 +8,7 @@
 
 // import 'package:intl/intl.dart';
 
-// class HomeView extends StatelessWidget {
+// class Mee extends StatelessWidget {
 //   final MeetingController _meetingController = Get.find();
 
 //   @override
@@ -94,7 +94,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
-class HomeView extends StatelessWidget {
+class MeetinScreen extends StatelessWidget {
   final MeetingController _meetingController = Get.find();
 
   @override
