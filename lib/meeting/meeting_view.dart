@@ -1,8 +1,9 @@
-import 'package:meeting_schedule/add_meeting_view.dart';
-import 'package:meeting_schedule/calendar_view.dart';
-import 'package:meeting_schedule/meeting_card.dart';
-import 'package:meeting_schedule/meeting_controller.dart';
-import 'package:meeting_schedule/meeting_detail_view.dart';
+import 'package:meeting_schedule/meeting/add_meeting_view.dart';
+import 'package:meeting_schedule/meeting/calendar_view.dart';
+import 'package:meeting_schedule/const/const_color.dart';
+import 'package:meeting_schedule/meeting/meeting_card.dart';
+import 'package:meeting_schedule/meeting/meeting_controller.dart';
+import 'package:meeting_schedule/meeting/meeting_detail_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,11 +13,21 @@ class MeetingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ConstColor.scaffoldBG,
       appBar: AppBar(
-        title: Text('Smart Meeting Scheduler'),
+        backgroundColor: ConstColor.appBarBG,
+        title: const Text(
+          'Smart Meeting Scheduler',
+          style: TextStyle(
+            color: Color(0xffF47D4E),
+            fontFamily: "Poppins",
+            fontSize: 20.0,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
         actions: [
           IconButton(
-            icon: Icon(Icons.calendar_today),
+            icon: const Icon(Icons.calendar_today),
             onPressed: () => Get.to(() => CalendarView()),
           ),
         ],
@@ -30,17 +41,27 @@ class MeetingView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 'Today\'s Meetings',
-                style: Theme.of(context).textTheme.headlineSmall,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontFamily: "Poppins",
+                  fontSize: 15.0,
+                  fontWeight: FontWeight.w400,
+                ),
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               if (todayMeetings.isEmpty)
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 16),
+                const Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 16),
                   child: Text(
                     'No meetings scheduled for today',
-                    style: Theme.of(context).textTheme.bodyLarge,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: "Poppins",
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                 )
               else
@@ -50,18 +71,28 @@ class MeetingView extends StatelessWidget {
                         () => MeetingDetailView(meeting: meeting),
                       ),
                     )),
-              SizedBox(height: 24),
-              Text(
+              const SizedBox(height: 24),
+              const Text(
                 'Upcoming Meetings',
-                style: Theme.of(context).textTheme.headlineSmall,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontFamily: "Poppins",
+                  fontSize: 15.0,
+                  fontWeight: FontWeight.w400,
+                ), 
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               if (upcomingMeetings.isEmpty)
-                Padding(
+                const Padding(
                   padding: EdgeInsets.symmetric(vertical: 16),
                   child: Text(
                     'No upcoming meetings',
-                    style: Theme.of(context).textTheme.bodyLarge,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: "Poppins",
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                 )
               else

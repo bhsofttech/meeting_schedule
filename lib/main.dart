@@ -1,7 +1,7 @@
-import 'package:meeting_schedule/database_helper.dart';
-import 'package:meeting_schedule/meeting_controller.dart';
-import 'package:meeting_schedule/meeting_view.dart';
-import 'package:meeting_schedule/theme_controller.dart';
+import 'package:meeting_schedule/meeting/database_helper.dart';
+import 'package:meeting_schedule/meeting/meeting_controller.dart';
+import 'package:meeting_schedule/meeting/meeting_view.dart';
+import 'package:meeting_schedule/meeting/theme_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

@@ -463,9 +463,9 @@
 //   }
 // }
 
-import 'package:meeting_schedule/database_helper.dart';
-import 'package:meeting_schedule/meeting.dart';
-import 'package:meeting_schedule/notification_service.dart';
+import 'package:meeting_schedule/meeting/database_helper.dart';
+import 'package:meeting_schedule/meeting/meeting.dart';
+import 'package:meeting_schedule/meeting/notification_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';

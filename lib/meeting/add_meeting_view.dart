@@ -1,8 +1,7 @@
-
-
-import 'package:meeting_schedule/meeting.dart';
-import 'package:meeting_schedule/meeting_controller.dart';
-import 'package:meeting_schedule/time_picker.dart';
+import 'package:meeting_schedule/const/const_color.dart';
+import 'package:meeting_schedule/meeting/meeting.dart';
+import 'package:meeting_schedule/meeting/meeting_controller.dart';
+import 'package:meeting_schedule/meeting/time_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -19,12 +18,12 @@ class AddMeetingView extends StatefulWidget {
 class _AddMeetingViewState extends State<AddMeetingView> {
   final MeetingController _meetingController = Get.find();
   final _formKey = GlobalKey<FormState>();
-  
+
   late TextEditingController _titleController;
   late TextEditingController _descriptionController;
   late TextEditingController _locationController;
   late TextEditingController _participantsController;
-  
+
   late DateTime _selectedDate;
   late TimeOfDay _startTime;
   late TimeOfDay _endTime;
@@ -46,19 +45,18 @@ class _AddMeetingViewState extends State<AddMeetingView> {
   void initState() {
     super.initState();
     final meeting = widget.existingMeeting;
-    
+
     _titleController = TextEditingController(text: meeting?.title ?? '');
-    _descriptionController = TextEditingController(text: meeting?.description ?? '');
+    _descriptionController =
+        TextEditingController(text: meeting?.description ?? '');
     _locationController = TextEditingController(text: meeting?.location ?? '');
-    _participantsController = TextEditingController(
-      text: meeting?.participants.join(', ') ?? ''
-    );
-    
+    _participantsController =
+        TextEditingController(text: meeting?.participants.join(', ') ?? '');
+
     _selectedDate = meeting?.startTime ?? DateTime.now();
     _startTime = TimeOfDay.fromDateTime(meeting?.startTime ?? DateTime.now());
     _endTime = TimeOfDay.fromDateTime(
-      meeting?.endTime ?? DateTime.now().add(Duration(hours: 1))
-    );
+        meeting?.endTime ?? DateTime.now().add(Duration(hours: 1)));
     _isAllDay = meeting?.isAllDay ?? false;
     _reminderMinutes = meeting?.reminderMinutes ?? 0;
 
@@ -106,7 +104,7 @@ class _AddMeetingViewState extends State<AddMeetingView> {
       _isAllDay ? 0 : _startTime.hour,
       _isAllDay ? 0 : _startTime.minute,
     );
-    
+
     final endDateTime = DateTime(
       _selectedDate.year,
       _selectedDate.month,
@@ -135,15 +133,14 @@ class _AddMeetingViewState extends State<AddMeetingView> {
     final meeting = Meeting(
       id: widget.existingMeeting?.id,
       title: _titleController.text,
-      description: _descriptionController.text.isEmpty 
-          ? null 
+      description: _descriptionController.text.isEmpty
+          ? null
           : _descriptionController.text,
       startTime: startDateTime,
       endTime: endDateTime,
       participants: participants,
-      location: _locationController.text.isEmpty 
-          ? null 
-          : _locationController.text,
+      location:
+          _locationController.text.isEmpty ? null : _locationController.text,
       isAllDay: _isAllDay,
       color: _selectedColor,
       reminderMinutes: _reminderMinutes,
@@ -210,13 +207,21 @@ class _AddMeetingViewState extends State<AddMeetingView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ConstColor.scaffoldBG,
       appBar: AppBar(
-        title: Text(widget.existingMeeting != null 
-            ? 'Edit Meeting' 
-            : 'Add New Meeting'),
+        backgroundColor: ConstColor.appBarBG,
+        title: Text(
+          widget.existingMeeting != null ? 'Edit Meeting' : 'Add New Meeting',
+          style: const TextStyle(
+            color: Color(0xffF47D4E),
+            fontFamily: "Poppins",
+            fontSize: 20.0,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Form(
           key: _formKey,
           child: Column(
@@ -233,7 +238,7 @@ class _AddMeetingViewState extends State<AddMeetingView> {
                   }
                   return null;
                 },
-              ),  
+              ),
               SizedBox(height: 16),
               TextFormField(
                 controller: _descriptionController,
@@ -242,7 +247,7 @@ class _AddMeetingViewState extends State<AddMeetingView> {
                   border: OutlineInputBorder(),
                 ),
                 maxLines: 3,
-              ),  
+              ),
               SizedBox(height: 16),
               Row(
                 children: [
@@ -265,7 +270,8 @@ class _AddMeetingViewState extends State<AddMeetingView> {
                     child: TimePickerField(
                       labelText: 'Start Time*',
                       initialTime: _startTime,
-                      onTimeSelected: (time) => setState(() => _startTime = time),
+                      onTimeSelected: (time) =>
+                          setState(() => _startTime = time),
                       enabled: !_isAllDay,
                     ),
                   ),
@@ -287,7 +293,8 @@ class _AddMeetingViewState extends State<AddMeetingView> {
                     child: CheckboxListTile(
                       title: Text('All Day'),
                       value: _isAllDay,
-                      onChanged: (value) => setState(() => _isAllDay = value ?? false),
+                      onChanged: (value) =>
+                          setState(() => _isAllDay = value ?? false),
                     ),
                   ),
                 ],
@@ -319,8 +326,8 @@ class _AddMeetingViewState extends State<AddMeetingView> {
               //     return DropdownMenuItem<int>(
               //       value: minutes,
               //       child: Text(
-              //         minutes == 0 
-              //           ? 'No reminder' 
+              //         minutes == 0
+              //           ? 'No reminder'
               //           : '$minutes minutes before',
               //       ),
               //     );
@@ -332,8 +339,8 @@ class _AddMeetingViewState extends State<AddMeetingView> {
               SizedBox(height: 24),
               ElevatedButton(
                 onPressed: _saveMeeting,
-                child: Text(widget.existingMeeting != null 
-                    ? 'Update Meeting' 
+                child: Text(widget.existingMeeting != null
+                    ? 'Update Meeting'
                     : 'Save Meeting'),
                 style: ElevatedButton.styleFrom(
                   minimumSize: Size(double.infinity, 50),
